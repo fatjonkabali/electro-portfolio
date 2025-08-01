@@ -1,0 +1,908 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><pnml>
+<net id="Net-One" type="P/T net">
+<token id="Default" enabled="true" red="0" green="0" blue="0"/>
+<place id="P_Arrival">
+<graphics>
+<position x="390.0" y="315.0"/>
+</graphics>
+<name>
+<value>P_Arrival</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="P_Battery">
+<graphics>
+<position x="465.0" y="420.0"/>
+</graphics>
+<name>
+<value>P_Battery</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,100</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="P_Charged">
+<graphics>
+<position x="1155.0" y="285.0"/>
+</graphics>
+<name>
+<value>P_Charged</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="P_Fast_Charge">
+<graphics>
+<position x="870.0" y="375.0"/>
+</graphics>
+<name>
+<value>P_Fast_Charge</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>10</value>
+</capacity>
+</place>
+<place id="P_Grid">
+<graphics>
+<position x="465.0" y="525.0"/>
+</graphics>
+<name>
+<value>P_Grid</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,9999</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="P_PV">
+<graphics>
+<position x="465.0" y="180.0"/>
+</graphics>
+<name>
+<value>P_PV</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,50</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="P_Slow_Charge">
+<graphics>
+<position x="870.0" y="285.0"/>
+</graphics>
+<name>
+<value>P_Slow_Charge</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>10</value>
+</capacity>
+</place>
+<transition id="T_Arrival">
+<graphics>
+<position x="255.0" y="315.0"/>
+</graphics>
+<name>
+<value>T_Arrival</value>
+<graphics>
+<offset x="-5.0" y="35.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>5.0</value>
+</rate>
+<timed>
+<value>true</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="T_End_F">
+<graphics>
+<position x="1020.0" y="330.0"/>
+</graphics>
+<name>
+<value>T_End_F</value>
+<graphics>
+<offset x="-5.0" y="35.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>2.0</value>
+</rate>
+<timed>
+<value>true</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="T_End_S">
+<graphics>
+<position x="1020.0" y="285.0"/>
+</graphics>
+<name>
+<value>T_End_S</value>
+<graphics>
+<offset x="-5.0" y="35.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>0.5</value>
+</rate>
+<timed>
+<value>true</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="T_Fast_Battery">
+<graphics>
+<position x="690.0" y="375.0"/>
+</graphics>
+<name>
+<value>T_Fast_Battery</value>
+<graphics>
+<offset x="-5.0" y="35.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="T_Fast_Grid">
+<graphics>
+<position x="690.0" y="510.0"/>
+</graphics>
+<name>
+<value>T_Fast_Grid</value>
+<graphics>
+<offset x="-5.0" y="35.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="T_Fast_PV">
+<graphics>
+<position x="690.0" y="255.0"/>
+</graphics>
+<name>
+<value>T_Fast_PV</value>
+<graphics>
+<offset x="-5.0" y="35.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="T_Recharge_Battery">
+<graphics>
+<position x="315.0" y="435.0"/>
+</graphics>
+<name>
+<value>T_Recharge_Battery</value>
+<graphics>
+<offset x="-5.0" y="35.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>0.005</value>
+</rate>
+<timed>
+<value>true</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="T_Recharge_PV">
+<graphics>
+<position x="300.0" y="150.0"/>
+</graphics>
+<name>
+<value>T_Recharge_PV</value>
+<graphics>
+<offset x="-5.0" y="35.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>0.005</value>
+</rate>
+<timed>
+<value>true</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="T_Slow_Battery">
+<graphics>
+<position x="690.0" y="315.0"/>
+</graphics>
+<name>
+<value>T_Slow_Battery</value>
+<graphics>
+<offset x="-5.0" y="35.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="T_Slow_Grid">
+<graphics>
+<position x="690.0" y="435.0"/>
+</graphics>
+<name>
+<value>T_Slow_Grid</value>
+<graphics>
+<offset x="-5.0" y="35.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="T_Slow_PV">
+<graphics>
+<position x="690.0" y="195.0"/>
+</graphics>
+<name>
+<value>T_Slow_PV</value>
+<graphics>
+<offset x="-5.0" y="35.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="T_V2G">
+<graphics>
+<position x="1020.0" y="375.0"/>
+</graphics>
+<name>
+<value>T_V2G</value>
+<graphics>
+<offset x="-5.0" y="35.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>true</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<arc id="P_Arrival to T_Fast_Battery" source="P_Arrival" target="T_Fast_Battery">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="416" y="330" curvePoint="false"/>
+<arcpath id="001" x="696" y="388" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P_Arrival to T_Fast_Grid" source="P_Arrival" target="T_Fast_Grid">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="414" y="335" curvePoint="false"/>
+<arcpath id="001" x="697" y="519" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P_Arrival to T_Fast_PV" source="P_Arrival" target="T_Fast_PV">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="416" y="324" curvePoint="false"/>
+<arcpath id="001" x="696" y="272" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P_Arrival to T_Slow_Battery" source="P_Arrival" target="T_Slow_Battery">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="416" y="327" curvePoint="false"/>
+<arcpath id="001" x="696" y="328" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P_Arrival to T_Slow_Grid" source="P_Arrival" target="T_Slow_Grid">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="415" y="332" curvePoint="false"/>
+<arcpath id="001" x="697" y="444" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P_Arrival to T_Slow_PV" source="P_Arrival" target="T_Slow_PV">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="415" y="321" curvePoint="false"/>
+<arcpath id="001" x="696" y="212" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P_Battery to T_Fast_Battery" source="P_Battery" target="T_Fast_Battery">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="491" y="429" curvePoint="false"/>
+<arcpath id="001" x="696" y="395" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P_Battery to T_Fast_Grid" source="P_Battery" target="T_Fast_Grid">
+<graphics/>
+<inscription>
+<value/>
+<graphics/>
+</inscription>
+<tagged>
+<value/>
+</tagged>
+<arcpath id="000" x="490" y="437" curvePoint="false"/>
+<arcpath id="001" x="696" y="525" curvePoint="false"/>
+<type value="inhibitor"/>
+</arc>
+<arc id="P_Battery to T_Slow_Battery" source="P_Battery" target="T_Slow_Battery">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="490" y="425" curvePoint="false"/>
+<arcpath id="001" x="696" y="335" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P_Battery to T_Slow_Grid" source="P_Battery" target="T_Slow_Grid">
+<graphics/>
+<inscription>
+<value/>
+<graphics/>
+</inscription>
+<tagged>
+<value/>
+</tagged>
+<arcpath id="000" x="491" y="433" curvePoint="false"/>
+<arcpath id="001" x="696" y="450" curvePoint="false"/>
+<type value="inhibitor"/>
+</arc>
+<arc id="P_Fast_Charge to T_End_F" source="P_Fast_Charge" target="T_End_F">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="896" y="382" curvePoint="false"/>
+<arcpath id="001" x="1026" y="342" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P_Fast_Charge to T_V2G" source="P_Fast_Charge" target="T_V2G">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="896" y="387" curvePoint="false"/>
+<arcpath id="001" x="1026" y="387" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P_Grid to T_Fast_Grid" source="P_Grid" target="T_Fast_Grid">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="491" y="536" curvePoint="false"/>
+<arcpath id="001" x="696" y="531" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P_Grid to T_Slow_Grid" source="P_Grid" target="T_Slow_Grid">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="491" y="531" curvePoint="false"/>
+<arcpath id="001" x="696" y="456" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P_PV to T_Fast_Battery" source="P_PV" target="T_Fast_Battery">
+<graphics/>
+<inscription>
+<value/>
+<graphics/>
+</inscription>
+<tagged>
+<value/>
+</tagged>
+<arcpath id="000" x="488" y="201" curvePoint="false"/>
+<arcpath id="001" x="697" y="381" curvePoint="false"/>
+<type value="inhibitor"/>
+</arc>
+<arc id="P_PV to T_Fast_Grid" source="P_PV" target="T_Fast_Grid">
+<graphics/>
+<inscription>
+<value/>
+<graphics/>
+</inscription>
+<tagged>
+<value/>
+</tagged>
+<arcpath id="000" x="485" y="204" curvePoint="false"/>
+<arcpath id="001" x="697" y="513" curvePoint="false"/>
+<type value="inhibitor"/>
+</arc>
+<arc id="P_PV to T_Fast_PV" source="P_PV" target="T_Fast_PV">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="491" y="196" curvePoint="false"/>
+<arcpath id="001" x="697" y="262" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P_PV to T_Slow_Battery" source="P_PV" target="T_Slow_Battery">
+<graphics/>
+<inscription>
+<value/>
+<graphics/>
+</inscription>
+<tagged>
+<value/>
+</tagged>
+<arcpath id="000" x="489" y="199" curvePoint="false"/>
+<arcpath id="001" x="697" y="321" curvePoint="false"/>
+<type value="inhibitor"/>
+</arc>
+<arc id="P_PV to T_Slow_Grid" source="P_PV" target="T_Slow_Grid">
+<graphics/>
+<inscription>
+<value/>
+<graphics/>
+</inscription>
+<tagged>
+<value/>
+</tagged>
+<arcpath id="000" x="486" y="203" curvePoint="false"/>
+<arcpath id="001" x="697" y="438" curvePoint="false"/>
+<type value="inhibitor"/>
+</arc>
+<arc id="P_PV to T_Slow_PV" source="P_PV" target="T_Slow_PV">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="491" y="192" curvePoint="false"/>
+<arcpath id="001" x="697" y="202" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P_Slow_Charge to T_End_S" source="P_Slow_Charge" target="T_End_S">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="896" y="297" curvePoint="false"/>
+<arcpath id="001" x="1026" y="297" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="T_Arrival to P_Arrival" source="T_Arrival" target="P_Arrival">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="271" y="327" curvePoint="false"/>
+<arcpath id="001" x="387" y="327" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="T_End_F to P7" source="T_End_F" target="P_Charged">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1036" y="342" curvePoint="false"/>
+<arcpath id="001" x="1152" y="301" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="T_End_S to P7" source="T_End_S" target="P_Charged">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1036" y="297" curvePoint="false"/>
+<arcpath id="001" x="1152" y="297" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="T_Fast_Battery to P_Fast_Charge" source="T_Fast_Battery" target="P_Fast_Charge">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="706" y="387" curvePoint="false"/>
+<arcpath id="001" x="867" y="387" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="T_Fast_Grid to P_Fast_Charge" source="T_Fast_Grid" target="P_Fast_Charge">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="706" y="522" curvePoint="false"/>
+<arcpath id="001" x="870" y="396" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="T_Fast_PV to P_Fast_Charge" source="T_Fast_PV" target="P_Fast_Charge">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="706" y="267" curvePoint="false"/>
+<arcpath id="001" x="869" y="378" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="T_Slow_Battery to P_Slow_Charge" source="T_Slow_Battery" target="P_Slow_Charge">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="706" y="327" curvePoint="false"/>
+<arcpath id="001" x="867" y="299" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="T_Slow_Grid to P_Slow_Charge" source="T_Slow_Grid" target="P_Slow_Charge">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="706" y="447" curvePoint="false"/>
+<arcpath id="001" x="870" y="306" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="T_Slow_PV to P_Slow_Charge" source="T_Slow_PV" target="P_Slow_Charge">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="706" y="207" curvePoint="false"/>
+<arcpath id="001" x="868" y="290" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="T_V2G to P_Charged" source="T_V2G" target="P_Charged">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1037" y="382" curvePoint="false"/>
+<arcpath id="001" x="1154" y="305" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="T_V2G to P_Grid" source="T_V2G" target="P_Grid">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1036" y="392" curvePoint="false"/>
+<arcpath id="001" x="1188" y="438" curvePoint="false"/>
+<arcpath id="002" x="1188" y="618" curvePoint="false"/>
+<arcpath id="003" x="438" y="618" curvePoint="false"/>
+<arcpath id="004" x="363" y="558" curvePoint="false"/>
+<arcpath id="005" x="462" y="539" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="T10 to P_PV" source="T_Recharge_PV" target="P_PV">
+<graphics/>
+<inscription>
+<value>Default,50</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="316" y="162" curvePoint="false"/>
+<arcpath id="001" x="462" y="189" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="T11 to P_Battery" source="T_Recharge_Battery" target="P_Battery">
+<graphics/>
+<inscription>
+<value>Default,100</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="331" y="447" curvePoint="false"/>
+<arcpath id="001" x="462" y="433" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<stategroup id="SG0">
+<name>
+<value>P</value>
+</name>
+</stategroup>
+</net>
+</pnml>
